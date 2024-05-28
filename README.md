@@ -34,5 +34,6 @@ Privacy Settings: Customize privacy settings to control how much history is save
 <img src = "https://github.com/fenishpatel3150/mirror_wall/assets/143187609/8dacc6d4-fc67-4a17-bd7c-962acf888917" width=22% height=35%>
 
 
-https://github.com/fenishpatel3150/mirror_wall/assets/143187609/5d338959-251a-417e-bcfb-0ad4e415d46a
+https://github.com/fenishpatel3150/mirror_wall/assets/143187609/3a6d4018-485f-4076-9320-d99a12ec8a9e
+
 
