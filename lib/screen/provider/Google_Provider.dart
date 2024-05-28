@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:mirror_wall/screen/view/Crome_screen.dart';
@@ -12,6 +14,8 @@ class Google_provider extends ChangeNotifier
    WebUri uri= WebUri('');
    List<String> bookmark=[];
    List<String> history=[];
+   bool back=false;
+   bool forward=false;
 
    int browser =0;
 
@@ -32,7 +36,9 @@ class Google_provider extends ChangeNotifier
    async {
 
      currenturl=url.toString();
+     currenthistory=url.toString();
      title=await inAppWebViewController.getTitle();
+
      notifyListeners();
 
    }
@@ -67,5 +73,19 @@ class Google_provider extends ChangeNotifier
      bookmark.removeAt(index);
      notifyListeners();
    }
+
+   Future<void> goback()
+   async {
+     await inAppWebViewController.goBack();
+     notifyListeners();
+   }
+
+   Future<void> goForward()
+   async {
+    await inAppWebViewController.goForward();
+    notifyListeners();
+   }
+
+
 }
 

@@ -2,22 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:mirror_wall/screen/provider/Google_Provider.dart';
 import 'package:mirror_wall/screen/view/commponets/book_mark_link_screen.dart';
-import 'package:mirror_wall/screen/view/commponets/historylist_screen.dart';
+import 'package:mirror_wall/screen/view/commponets/listhistory.dart';
 import 'package:mirror_wall/screen/view/commponets/radio_button.dart';
 import 'package:mirror_wall/screen/view/home_page.dart';
 import 'package:provider/provider.dart';
 
 late InAppWebViewController inAppWebViewController;
-PullToRefreshController pullrefreshcontroller = PullToRefreshController(
-    onRefresh: ()
-    {
-      inAppWebViewController.reload();
-    }
-);
+PullToRefreshController pullrefreshcontroller =
+    PullToRefreshController(onRefresh: () {
+  inAppWebViewController.reload();
+});
 
 class Chrome_Screen extends StatelessWidget {
   const Chrome_Screen({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -70,10 +67,18 @@ class Chrome_Screen extends StatelessWidget {
                                       title:
                                           Center(child: Text('Search Engine')),
                                       actions: [
-                                        radiobutton(context,'https://www.google.com','Google'),
-                                        radiobutton(context,'https://in.search.yahoo.com/','Yahoo'),
-                                        radiobutton(context,'https://www.bing.com/','Bing'),
-                                        radiobutton(context,'https://duckduckgo.com/','Duck Duck Go'),
+                                        radiobutton(context,
+                                            'https://www.google.com', 'Google'),
+                                        radiobutton(
+                                            context,
+                                            'https://in.search.yahoo.com/',
+                                            'Yahoo'),
+                                        radiobutton(context,
+                                            'https://www.bing.com/', 'Bing'),
+                                        radiobutton(
+                                            context,
+                                            'https://duckduckgo.com/',
+                                            'Duck Duck Go'),
                                       ],
                                     ),
                                   );
@@ -81,7 +86,6 @@ class Chrome_Screen extends StatelessWidget {
                                 child: Text('Search Engine')),
                           ],
                         ),
-
                         SizedBox(
                           height: 20,
                         ),
@@ -93,8 +97,11 @@ class Chrome_Screen extends StatelessWidget {
                             ),
                             InkWell(
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => History_screen(),));
-
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => History_screen(),
+                                      ));
                                 },
                                 child: Text('History')),
                           ],
@@ -164,13 +171,12 @@ class Chrome_Screen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           IconButton(
-              onPressed: () {
-                inAppWebViewController.goBack();
+              onPressed:() {
+                Provider.of<Google_provider>(context,listen: false).goback();
               },
               icon: Icon(Icons.chevron_left)),
           IconButton(
-              onPressed: () {
-                inAppWebViewController.goForward();
+              onPressed: () {Provider.of<Google_provider>(context,listen: false).goForward();
               },
               icon: Icon(Icons.chevron_right)),
           IconButton(
